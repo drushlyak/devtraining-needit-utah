@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="INSERT_OR_UPDATE">
+        <controller_preset/>
+        <includes/>
+        <macroponent display_value="SRP Record copy">54c15d31c31c36106992b132b40131b2</macroponent>
+        <name>SRP UX Event tracking</name>
+        <preset/>
+        <required_translations>[]</required_translations>
+        <script><![CDATA[/**
+ * @param {params} params
+ * @param {api} params.api
+ * @param {any} params.event
+ */
+function evaluateEvent({
+    api,
+    event
+}) {
+    const {
+        name,
+        payload
+    } = event;
+    var appseePayload = {};
+
+    switch (name) {
+        case 'UXF_TAB_SET#TAB_SELECTED':
+            const selectedTab = payload.selectedTab;
+
+            let tabName = '';
+
+            if (selectedTab.includes("^route=")) {
+                // This is a page collection
+                tabName = selectedTab.split("^route=")[1];
+            } else if (selectedTab.includes("^index=")) {
+                // This is a repeater tab
+                tabName = selectedTab.split("=")[1].split("^")[0];
+            } else {
+                // This is a static tab
+                tabName = selectedTab.split("=")[1];
+            }
+
+            appseePayload = {
+                event: "Click record tab",
+                value: {
+                    "Tab name": tabName
+                }
+            };
+            break;
+    }
+    api.emit('MACROPONENT_TRACK_USAGE_REQUESTED', appseePayload);
+}
+]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-30 19:43:25</sys_created_on>
+        <sys_id>e4c15d31c31c36106992b132b40131eb</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>SRP UX Event tracking</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ux_client_script_e4c15d31c31c36106992b132b40131eb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-30 19:43:25</sys_updated_on>
+        <target>macroponent</target>
+        <type>default</type>
+    </sys_ux_client_script>
+</record_update>

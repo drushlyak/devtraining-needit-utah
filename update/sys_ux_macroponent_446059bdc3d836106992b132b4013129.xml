@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="INSERT_OR_UPDATE">
+        <associated_types/>
+        <bundles/>
+        <category>macroponent</category>
+        <component_dependencies/>
+        <composition>[
+    {
+        "definition": {
+            "id": "1fe9d36810c897dda1a594568d5031c3",
+            "type": "MACROPONENT"
+        },
+        "elementId": "catalog_iframe",
+        "elementLabel": "Catalog IFrame",
+        "eventMappings": [
+            {
+                "eventMappingId": "ckrlgzddinaaaacciccaiiiidffhhddiiffm",
+                "isConfiguration": false,
+                "offRowStorageId": null,
+                "sourceEventApiName": "sn_catalog_iframe.SN_CATALOG_IFRAME#RECORD_DETAILS",
+                "sourceEventCorrelationId": null,
+                "sourceEventDefinition": {
+                    "apiName": "sn_catalog_iframe.SN_CATALOG_IFRAME#RECORD_DETAILS",
+                    "id": null,
+                    "type": "UXEVENT"
+                },
+                "sourceEventSysId": null,
+                "targets": [
+                    {
+                        "broker": null,
+                        "clientScript": {
+                            "sysId": "546059bdc3d836106992b132b401313b"
+                        },
+                        "conditional": null,
+                        "declarativeAction": null,
+                        "event": null,
+                        "operation": null,
+                        "targetId": "ckrlgzddinaaaaccjccaiiiibtrnddaaagg",
+                        "type": "CLIENT_SCRIPT"
+                    }
+                ]
+            },
+            {
+                "eventMappingId": "ckrlgyxaiaaaaccgccaiiiixjkgzsrgg",
+                "isConfiguration": false,
+                "offRowStorageId": null,
+                "sourceEventApiName": "sn_catalog_iframe.SN_CATALOG_IFRAME#TITLE_UPDATED",
+                "sourceEventCorrelationId": null,
+                "sourceEventDefinition": {
+                    "apiName": "sn_catalog_iframe.SN_CATALOG_IFRAME#TITLE_UPDATED",
+                    "id": null,
+                    "type": "UXEVENT"
+                },
+                "sourceEventSysId": null,
+                "targets": [
+                    {
+                        "broker": null,
+                        "clientScript": {
+                            "sysId": "d06059bdc3d836106992b132b4013130"
+                        },
+                        "conditional": null,
+                        "declarativeAction": null,
+                        "event": null,
+                        "operation": null,
+                        "targetId": "ckrlgyxaiaaaacchccaiiiiwyggoxgh",
+                        "type": "CLIENT_SCRIPT"
+                    }
+                ]
+            },
+            {
+                "eventMappingId": "ckrlgyggbyaaaacceccaiiiiaixbbarygg",
+                "isConfiguration": false,
+                "offRowStorageId": null,
+                "sourceEventApiName": "sn_catalog_iframe.SN_CATALOG_IFRAME#CLOSE",
+                "sourceEventCorrelationId": null,
+                "sourceEventDefinition": {
+                    "apiName": "sn_catalog_iframe.SN_CATALOG_IFRAME#CLOSE",
+                    "id": null,
+                    "type": "UXEVENT"
+                },
+                "sourceEventSysId": null,
+                "targets": [
+                    {
+                        "broker": null,
+                        "clientScript": {
+                            "sysId": "5c6059bdc3d836106992b132b4013136"
+                        },
+                        "conditional": null,
+                        "declarativeAction": null,
+                        "event": null,
+                        "operation": null,
+                        "targetId": "ckrlgyggbyaaaaccfccaiiiipftxbgmo",
+                        "type": "CLIENT_SCRIPT"
+                    }
+                ]
+            }
+        ],
+        "extensionPoints": [],
+        "isHero": false,
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": ""
+        },
+        "isNonDestructive": false,
+        "items": [],
+        "overrides": null,
+        "propertyValues": {
+            "catalogId": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "categoryId": {
+                "script": {
+                    "apiVersion": "1.0.0",
+                    "controllerElementId": null,
+                    "inlineScript": "/**\n * @param {params} params\n * @param {api} params.api\n * @param {any} params.imports\n */\nfunction evaluateProperty({\n    api\n}) {\n    let extraParams = {};\n    if (api.context.props.extraParams) {\n        let paramObjects = api.context.props.extraParams.split(\"/\");\n        for (let i = 0; i &lt; paramObjects.length; i = i + 2) {\n            extraParams[paramObjects[i]] = paramObjects[i + 1];\n        }\n    }\n    return api.context.props.categoryId || extraParams.sysId || extraParams.category_id;\n}",
+                    "scriptSysId": null,
+                    "target": null
+                },
+                "type": "CLIENT_TRANSFORM_SCRIPT"
+            },
+            "parentSysId": {
+                "script": {
+                    "apiVersion": "1.0.0",
+                    "controllerElementId": null,
+                    "inlineScript": "/**\n * @param {params} params\n * @param {api} params.api\n * @param {any} params.imports\n */\nfunction evaluateProperty({\n    api\n}) {\n    let extraParams = {};\n    if (api.context.props.extraParams) {\n        let paramObjects = api.context.props.extraParams.split(\"/\");\n        for (let i = 0; i &lt; paramObjects.length; i = i + 2) {\n            extraParams[paramObjects[i]] = paramObjects[i + 1];\n        }\n    }\n    return api.context.props.parentSysId || extraParams.parent_sys_id || extraParams.sysparm_parent_sys_id;\n}",
+                    "scriptSysId": null,
+                    "target": null
+                },
+                "type": "CLIENT_TRANSFORM_SCRIPT"
+            },
+            "parentTable": {
+                "script": {
+                    "apiVersion": "2.0.0",
+                    "controllerElementId": null,
+                    "inlineScript": "/**\n * @param {params} params\n * @param {api} params.api\n * @param {any} params.imports\n */\nfunction evaluateProperty({\n    api\n}) {\n    let extraParams = {};\n    if (api.context.props.extraParams) {\n        let paramObjects = api.context.props.extraParams.split(\"/\");\n        for (let i = 0; i &lt; paramObjects.length; i = i + 2) {\n            extraParams[paramObjects[i]] = paramObjects[i + 1];\n        }\n    }\n    return api.context.props.parentTable || extraParams.parent_table || extraParams.sysparm_parent_table;\n}",
+                    "scriptSysId": null,
+                    "target": null
+                },
+                "type": "CLIENT_TRANSFORM_SCRIPT"
+            },
+            "sysId": {
+                "binding": {
+                    "address": [
+                        "sysId"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "table": {
+                "binding": {
+                    "address": [
+                        "table"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            }
+        },
+        "slot": null,
+        "styles": {}
+    }
+]</composition>
+        <da_relay_models/>
+        <data>[]</data>
+        <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
+        <dispatched_events/>
+        <ext_controller_dep/>
+        <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
+        <extension_point/>
+        <form_factors>{}</form_factors>
+        <handled_events/>
+        <interactions/>
+        <interfaces/>
+        <internal_event_mappings>{}</internal_event_mappings>
+        <layout>{
+    "default": {
+        "children": null,
+        "isInline": null,
+        "items": [
+            {
+                "element_id": "catalog_iframe",
+                "rules": {},
+                "styles": {
+                    "flex": "1"
+                }
+            }
+        ],
+        "root": null,
+        "rules": null,
+        "styles": {
+            "align-items": "stretch",
+            "flex-flow": "row nowrap",
+            "height": "100%",
+            "min-height": "400px"
+        },
+        "templateId": "28bde4cd53431010e6bcddeeff7b12cc",
+        "type": "flex"
+    },
+    "version": "3.0.0"
+}</layout>
+        <macroponent_dependencies/>
+        <name>Catalog Item Page SNC copy</name>
+        <output_prop_mapping/>
+        <props>[
+    {
+        "defaultValue": null,
+        "description": null,
+        "disabled": false,
+        "fieldType": null,
+        "label": null,
+        "mandatory": false,
+        "name": "query",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    },
+    {
+        "defaultValue": null,
+        "description": null,
+        "disabled": false,
+        "fieldType": null,
+        "label": null,
+        "mandatory": false,
+        "name": "extraParams",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    },
+    {
+        "defaultValue": null,
+        "description": null,
+        "disabled": false,
+        "fieldType": null,
+        "label": null,
+        "mandatory": false,
+        "name": "views",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    },
+    {
+        "defaultValue": null,
+        "description": null,
+        "disabled": false,
+        "fieldType": null,
+        "label": null,
+        "mandatory": false,
+        "name": "selectedTabIndex",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    },
+    {
+        "defaultValue": null,
+        "description": null,
+        "disabled": false,
+        "fieldType": null,
+        "label": null,
+        "mandatory": false,
+        "name": "table",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    },
+    {
+        "defaultValue": null,
+        "description": null,
+        "disabled": false,
+        "fieldType": null,
+        "label": null,
+        "mandatory": false,
+        "name": "sysId",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    }
+]</props>
+        <required_translations>[ ]</required_translations>
+        <root_component/>
+        <root_component_config>{}</root_component_config>
+        <root_component_definition/>
+        <schema_version>1.0.0</schema_version>
+        <state_persistence_config/>
+        <state_properties>[]</state_properties>
+        <style_config>{}</style_config>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-30 19:37:23</sys_created_on>
+        <sys_id>446059bdc3d836106992b132b4013129</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Catalog Item Page SNC copy</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ux_macroponent_446059bdc3d836106992b132b4013129</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-30 19:37:23</sys_updated_on>
+    </sys_ux_macroponent>
+    <sys_translated_text action="delete_multiple" query="documentkey=446059bdc3d836106992b132b4013129"/>
+</record_update>
